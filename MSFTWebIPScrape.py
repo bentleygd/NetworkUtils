@@ -30,11 +30,11 @@ Conf_File = 'WebIPs.conf'
 Conf = open(Conf_File, 'r+b')
 URLs = []
 for line in Conf:
-    if search('r^web_page =', line):
-        urls = search('r(?<=^web_page = )\S+', line)
+    if search(r'^web_page =', line):
+        urls = search(r'(?<=^web_page = )\S+', line)
         URLs.append(urls.group(0))
-    elif search('r^results_file =', line):
-        rf = search('r(?<=^results_file = )\S+', line)
+    elif search(r'^results_file =', line):
+        rf = search(r'(?<=^results_file = )\S+', line)
         results_file = open(rf.group(0), 'w')
 
 # Executing the function to get IPs.
