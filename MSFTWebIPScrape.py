@@ -16,12 +16,13 @@ def GetMSFTWebIPs(URL):
     for a in urlopen(data_page):
         if search(IP_Rgx, a):
             for b in a.split(','):
-                 temp_data.append(b)
+                temp_data.append(b)
     for c in temp_data:
         if match(CIDR_Rgx, c):
             p_holder = match(CIDR_Rgx, c)
             IPs.append(p_holder.group(2))
     return IPs
+
 
 # Defining the location of the configuration and reading its contents
 # to obtain the necessary configurations.
@@ -29,11 +30,11 @@ Conf_File = 'WebIPs.conf'
 Conf = open(Conf_File, 'r+b')
 URLs = []
 for line in Conf:
-    if search('^web_page =', line):
-        urls = search('(?<=^web_page = )\S+', line)
+    if search('r^web_page =', line):
+        urls = search('r(?<=^web_page = )\S+', line)
         URLs.append(urls.group(0))
-    elif search('^results_file =', line):
-        rf = search('(?<=^results_file = )\S+', line)
+    elif search('r^results_file =', line):
+        rf = search('r(?<=^results_file = )\S+', line)
         results_file = open(rf.group(0), 'w')
 
 # Executing the function to get IPs.
