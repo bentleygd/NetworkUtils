@@ -27,9 +27,6 @@ def GetMSFTWebIPs(URL):
         print exc_info()[:2]
         print 'Unable to make connection to ', data_page
         exit(1)
-    except:
-        print 'Unrecognized error.  Contact IT Security to debug'
-        exit(1)
     for c in temp_data:
         if match(CIDR_Rgx, c):
             p_holder = match(CIDR_Rgx, c)
@@ -46,8 +43,7 @@ def MailSend(mail_sender, mail_recipients, mail_server, mail_body):
     msg['To'] = mail_recipients
     s = smtplib.SMTP(gethostbyname(mail_server), '25')
     s.sendmail(mail_sender, mail_recipients, msg.as_string())
-    s.quit
-    
+
 
 # Defining the location of the configuration and reading its contents
 # to obtain the necessary configurations.
