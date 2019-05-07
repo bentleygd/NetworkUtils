@@ -21,7 +21,11 @@ The recipient address for the notification.
 The email address that will appear to send the email.
 
 results_file = Results.txt
+
 web_page = https://www.example.com
+
 smtp_server = smtp_server.example.com
+
 email = dudefella@domain.com
+
 from_addr = pythonbot@domain.com
