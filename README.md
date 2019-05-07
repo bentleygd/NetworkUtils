@@ -20,6 +20,8 @@ The recipient address for the notification.
 "from_addr = "
 The email address that will appear to send the email.
 
+EXAMPLE CONFIGURATION:
+
 results_file = Results.txt
 
 web_page = https://www.example.com
